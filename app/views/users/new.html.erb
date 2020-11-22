@@ -12,7 +12,7 @@
   <input type="submit" value="Submit">
 </form>-->
 
-<%= form_tag('users') do %>
+<!--<%= form_tag('users') do %>
   <%= label_tag(:name, "Username") %>
   <%= text_field_tag(:name) %>
   <%= label_tag(:email, "Email") %>
@@ -22,4 +22,16 @@
   <%= label_tag(:password_confirmation, "Confirm Password") %>
   <%= password_field_tag(:password_confirmation, nil) %>
   <%= submit_tag("Submit") %>
+<% end %>-->
+
+<%= form_for @user do |f| %>
+  <%= f.label :name, 'Username:' %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :email, 'Email:' %>
+  <%= f.email_field :email %><br><br>
+  <%= f.label :password, 'Password:' %>
+  <%= f.password_field :password %><br><br>
+  <%= f.label :password_confirmation, 'Confirm Password:' %><br><br>
+  <%= f.password_field :password_confirmation %><br><br>
+  <%= f.submit 'Submit' %>
 <% end %>

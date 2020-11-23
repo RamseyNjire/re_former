@@ -1,0 +1,50 @@
+<h2>Create A New User</h2>
+<!-- <form accept-charset="UTF-8" action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="name">Username:</label>
+  <input type="text" id="name" name="user[name]"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="user[email]"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="user[password]"><br><br>
+  <label for="password_confirmation">Confirm Password:</label>
+  <input type="password" id="password_confirmation" name="user[password_confirmation]"><br><br>
+  <input type="submit" value="Submit">
+</form>-->
+
+<!--<%= form_tag('users') do %>
+  <%= label_tag(:name, "Username") %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:email, "Email") %>
+  <%= email_field(:email, nil) %>
+  <%= label_tag(:password, "Password") %>
+  <%= password_field_tag(:password, nil) %>
+  <%= label_tag(:password_confirmation, "Confirm Password") %>
+  <%= password_field_tag(:password_confirmation, nil) %>
+  <%= submit_tag("Submit") %>
+<% end %>-->
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :name, 'Username:' %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :email, 'Email:' %>
+  <%= f.email_field :email %><br><br>
+  <%= f.label :password, 'Password:' %>
+  <%= f.password_field :password %><br><br>
+  <%= f.label :password_confirmation, 'Confirm Password:' %><br><br>
+  <%= f.password_field :password_confirmation %><br><br>
+  <%= f.submit 'Submit' %>
+<% end %>

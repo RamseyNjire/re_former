@@ -21,6 +21,10 @@ $ `cd micro_reddit`
 
 $ `ruby bundle install`
 
+- There seems to be an issue with webpacker, where it does not create a packs folder with the manifest.json file in the public folder. To avoid this, run the following after bundle install, just to be sure.
+
+$ `ruby bundle exec rails webpacker:install`
+
 = The command 'bundle install' is important to install the required gems for the app to run. After you finish, open a new terminal window, cd into the project folder, and type:
 
 $ `rails server`
